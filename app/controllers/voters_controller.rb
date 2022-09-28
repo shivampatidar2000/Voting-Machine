@@ -1,9 +1,5 @@
-class VotersController < ApplicationController
-    def new
-        @voter = Voter.new
-    end
-
-    def create
-        
-    end
+class VotersController  < Devise::RegistrationsController
+  
+    # def show 
+    #     @voters=
 end

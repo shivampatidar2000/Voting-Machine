@@ -1,0 +1,31 @@
+<%= form_with(model: @vote, :remote => true)  do |form| %>
+  <% if @vote.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
+
+      <ul>
+        <% @vote.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    
+    <%= form.number_field :voter_id ,  :value => current_voter.id , type: :hidden%> 
+    <%= form.number_field :group_id, :value =>  group.id , type: :hidden %>
+
+
+  </div>
+
+  <div>
+    <% if current_voter.group %>
+      <%= form.submit disabled:true %>
+      <%# <%= current_voter.group.name  notice: "Voter is voted"%> 
+    <% else %>
+      <%= form.submit %>
+   <%end%>
+  </div>
+
+<% end %>

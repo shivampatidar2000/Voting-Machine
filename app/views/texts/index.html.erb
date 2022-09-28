@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Texts</h1>
+
+<div id="texts">
+  <% @texts.each do |text| %>
+  
+  <img src= '<%= text.image%>', alt='This is image'>
+ 
+    <%= render text %>
+    <p>
+      <%= link_to "Show this text", text %>
+   <%= link_to "destroy" , text_path(text), data:{turbo_method: :delete ,turbo_confirm: "Are You Sure? "} %></td>
+        
+
+
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New text", new_text_path %>

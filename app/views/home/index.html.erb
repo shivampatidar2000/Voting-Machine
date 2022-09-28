@@ -1,5 +1,46 @@
 
-
-hy voter
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
 
 <%= button_to "sign out" , destroy_voter_session_path , method: :delete%>
+
+<div class="grid-container">
+
+    <div class="card" style="width: 16rem;">
+        <div class="grid-item">
+            <% if voter_signed_in? %>
+            <img src= <%= current_voter.image %> alt = "Voter profile" ><br>
+                <div class="card-body">
+                    <h5 class="card-title"> Name:<br>  <%= current_voter.name %></h5>
+                    <h5 class="card-title"> Mobile Number:<br> <%= current_voter.mobile_num %></h5>
+                    <h5 class="card-title"> State: <%= current_voter.state %></h5>
+                    <h5 class="card-title"> City: <%= current_voter.city %></h5>
+                </div>
+            <% end %>
+        </div>
+    </div><br>
+    <br>
+    <div class="grid-item">
+        <% @groups.each do |data|%>
+            <div class="card" style="width: 8rem;">
+                <img class="card-img-top" , src=<%= data.image %> alt = "Voter profile" ,  alt="..." ></h5><br>
+                <h5 Name: class="card-title">Name: <%= data.name%><br></h5> 
+                <h5 Name: class="card-title"><%= render "votes/form", group:data %></h5>
+            </div>
+        <% end %>
+                <%# <%= @groups.name.count += 0 %> 
+    </div>
+</div>
+
+
+
