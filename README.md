@@ -22,5 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-shivam patidar
-this is good for my access
+* hello shivam
