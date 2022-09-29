@@ -5,7 +5,7 @@ class VotesController < ApplicationController
   def index
     @votes = Vote.all
   end
-
+  
   # GET /votes/1 or /votes/1.json
   def show
   end
